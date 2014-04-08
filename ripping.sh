@@ -2,7 +2,7 @@
 
 base_dir = ARGV[0]
 preset = ARGV[1]
-command  = 'HandBrakeCLI -i "{{input_file}}" -o "{{output_file}}.mp4" --preset="#{preset}"'
+command  = "HandBrakeCLI -i '{{input_file}}' -o '{{output_file}}.mp4' --preset='#{preset}'"
 
 Dir[ "#{base_dir}/*.avi" ].each do |video|
   file_name = File.basename(video)
