@@ -13,6 +13,6 @@ Dir[ "#{base_dir}/*.avi" ].each do |video|
   if !Dir.exists?( "#{base_dir}/ripped" )
     Dir.mkdir( "#{base_dir}/ripped" )
   end
-  exec( str_cmd )
+  %x{ str_cmd }
 end
 
