@@ -2,9 +2,10 @@
 
 base_dir = ARGV[0]
 preset = ARGV[1]
+ext = ARGV[2]
 command  = "HandBrakeCLI -i '{{input_file}}' -o '{{output_file}}.mp4' --preset='#{preset}'"
 
-Dir[ "#{base_dir}/*.avi" ].each do |video|
+Dir[ "#{base_dir}/*.#{ext}" ].each do |video|
   file_name = File.basename(video)
   simple_name = File.basename( video, File.extname(video) )
 
@@ -13,6 +14,6 @@ Dir[ "#{base_dir}/*.avi" ].each do |video|
   if !Dir.exists?( "#{base_dir}/ripped" )
     Dir.mkdir( "#{base_dir}/ripped" )
   end
-  %x{ str_cmd }
+  system "#{str_cmd}"
 end
 
