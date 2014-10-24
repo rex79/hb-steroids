@@ -1,5 +1,8 @@
 #!/usr/bin/env ruby
 
+# example
+#/Volumes/Data/Lavoro/scripts/hb-steroids/ripping.sh "/Volumes/2TB/tmp/once_upon_a_time_serie_2" "AppleTV 3" "avi" "1,2"
+
 base_dir = ARGV[0]
 preset = ARGV[1]
 ext = ARGV[2]
@@ -8,7 +11,7 @@ command  = "HandBrakeCLI -i '{{input_file}}' -o '{{output_file}}.mp4' --preset='
 
 Dir[ "#{base_dir}/*.#{ext}" ].each do |video|
   file_name = File.basename(video)
-  only_file_name = File.basename(video, '.*').gsub("ITA.ENG", "ITA_ENG")
+  only_file_name = File.basename(video, '.*').gsub("ITA.ENG", "ITA_E")
   simple_name = File.basename( video, File.extname(video) )
 
 
