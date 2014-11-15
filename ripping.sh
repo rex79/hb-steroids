@@ -3,15 +3,15 @@
 # example
 #/Volumes/Data/Lavoro/scripts/hb-steroids/ripping.sh "/Volumes/2TB/tmp/once_upon_a_time_serie_2" "AppleTV 3" "avi" "1,2"
 
-base_dir = ARGV[0]
-preset = ARGV[1]
-ext = ARGV[2]
-audio = ARGV[3]
+base_dir = Dir.pwd
+preset = ARGV[0]
+ext = ARGV[1]
+audio = ARGV[2]
 command  = "HandBrakeCLI -i '{{input_file}}' -o '{{output_file}}.mp4' --preset='#{preset}' -a #{audio} --srt-file {{srt_string}} "
 
 Dir[ "#{base_dir}/*.#{ext}" ].each do |video|
   file_name = File.basename(video)
-  only_file_name = File.basename(video, '.*').gsub("ITA.ENG", "ITA_E")
+  only_file_name = File.basename(video, '.*')
   simple_name = File.basename( video, File.extname(video) )
 
 
