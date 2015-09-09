@@ -7,6 +7,7 @@ base_dir =ARGV[0]
 preset = ARGV[1]
 ext = ARGV[2]
 audio = ARGV[3]
+subtitle = ARGV[4]
 
 cmd  = "HandBrakeCLI -i '{{input_file}}' -o '{{output_file}}.mp4' --preset='#{preset}' --srt-file {{srt_string}} -a #{audio}"
 cmd_no_subtitle = "HandBrakeCLI -i '{{input_file}}' -o '{{output_file}}.mp4' --preset='#{preset}' -a #{audio}"
